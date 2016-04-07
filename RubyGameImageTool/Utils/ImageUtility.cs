@@ -24,6 +24,11 @@ namespace Gods.Foundation.Utils
             return ConvertToBgr24FormatIfNecessary(image);
         }
 
+        public static BitmapSource ConvertToBgra32Format(BitmapSource originalImage)
+        {
+            return new FormatConvertedBitmap(originalImage, PixelFormats.Bgra32, null, 0);
+        }
+
         private static BitmapSource ConvertToBgr24FormatIfNecessary(BitmapSource originalImage)
         {
             if (originalImage.Format == PixelFormats.Bgr24)
@@ -33,19 +38,35 @@ namespace Gods.Foundation.Utils
             return new FormatConvertedBitmap(originalImage, PixelFormats.Bgr24, null, 0);
         }
 
-        public static BitmapSource TransferPixels(BitmapSource bitmapSource, Color from, Color to)
+        public static BitmapSource TransferPixels(BitmapSource bitmapSource, Color from, Color to, bool isForPng=false)
         {
+            if (isForPng)
+            {
+                bitmapSource = ConvertToBgra32Format(bitmapSource);
+            }
+
             int pixelWidth, pixelHeight, stride;
             byte[] pixelsData = GetBitmapSourcePixelsData(bitmapSource, out pixelWidth, out pixelHeight, out stride);
             for (int x = 0; x < pixelWidth; x++)
             {
                 for (int y = 0; y < pixelHeight; y++)
                 {
-                    byte blue, green, red;
-                    PixelUtility.GetPixelBgr(pixelsData, x, y, stride, out blue, out green, out red);
-                    if (blue == from.B && green == from.G && red == from.R)
+                    byte alpah, blue, green, red;
+                    if (isForPng)
                     {
-                        PixelUtility.SetPixelBgr(pixelsData, x, y, stride, to.B, to.G, to.R);
+                        PixelUtility.GetPixelBgra(pixelsData, x, y, stride, out blue, out green, out red, out alpah);
+                        if (blue == from.B && green == from.G && red == from.R)
+                        {
+                            PixelUtility.SetPixelBgra(pixelsData, x, y, stride, to.B, to.G, to.R, to.A);
+                        }
+                    }
+                    else
+                    {
+                        PixelUtility.GetPixelBgr(pixelsData, x, y, stride, out blue, out green, out red);
+                        if (blue == from.B && green == from.G && red == from.R)
+                        {
+                            PixelUtility.SetPixelBgr(pixelsData, x, y, stride, to.B, to.G, to.R);
+                        }
                     }
                 }
             }
@@ -73,6 +94,16 @@ namespace Gods.Foundation.Utils
             using (FileStream stream = new FileStream(fileName, FileMode.Create))
             {
                 BmpBitmapEncoder bitmapEncoder = new BmpBitmapEncoder();
+                bitmapEncoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+                bitmapEncoder.Save(stream);
+            }
+        }
+
+        public static void SavePng(String fileName, BitmapSource bitmapSource)
+        {
+            using (FileStream stream = new FileStream(fileName, FileMode.Create))
+            {
+                PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
                 bitmapEncoder.Frames.Add(BitmapFrame.Create(bitmapSource));
                 bitmapEncoder.Save(stream);
             }

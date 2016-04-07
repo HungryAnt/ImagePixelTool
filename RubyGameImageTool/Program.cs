@@ -13,17 +13,35 @@ namespace RubyGameImageTool
     {
         static void Main(string[] args)
         {
-            if (args.Count() != 1)
+            if (args.Count() < 1)
             {
-                Console.WriteLine("need argument: image_dir");
+                Console.WriteLine("need argument: image_dir [png]");
                 return;
             }
+
             String imageDir = args[0];
+            Function function = Function.Origin;
+            if (args.Length >= 2)
+            {
+                if (args[1] == "png")
+                {
+                    function = Function.ToPng;
+                }
+            }
+            
             DirectoryInfo rootDir = new DirectoryInfo(imageDir);
-            FileInfo[] fileInfos = rootDir.GetFiles();
+            FileInfo[] fileInfos = rootDir.GetFiles("*.bmp");
+
             foreach (var fileInfo in fileInfos)
             {
-                modifyBmp(fileInfo.FullName);
+                if (function == Function.Origin)
+                {
+                    modifyBmp(fileInfo.FullName);
+                }
+                else if (function == Function.ToPng)
+                {
+                    toPng(fileInfo.FullName, Color.FromRgb(0, 0, 248));
+                }
             }
             Console.WriteLine("Done! ~ Ant robot");
         }
@@ -32,8 +50,24 @@ namespace RubyGameImageTool
         {
             var bitmapSource = ImageUtility.LoadBitmapImageAndCloseFile(path);
             var newBitmapSource = ImageUtility.TransferPixels(
-                bitmapSource, Color.FromRgb(0, 0, 248), Color.FromRgb(255, 0, 255));
+                bitmapSource,
+                Color.FromRgb(0, 0, 248),
+                Color.FromArgb(0, 0, 0, 0) // Color.FromRgb(255, 0, 255)
+                );
             ImageUtility.SaveBitmap(path, newBitmapSource);
+        }
+
+        static void toPng(String path, Color alphaColor)
+        {
+            var bitmapSource = ImageUtility.LoadBitmapImageAndCloseFile(path);
+            var newBitmapSource = ImageUtility.TransferPixels(
+                bitmapSource,
+                alphaColor,
+                Color.FromArgb(0, 255, 255, 255),
+                true
+                );
+            String pngFilePath = Path.ChangeExtension(path, ".png");
+            ImageUtility.SavePng(pngFilePath, newBitmapSource);
         }
     }
 }
