@@ -8,6 +8,7 @@ namespace RubyGameImageTool
     enum Function
     {
         Origin,
-        ToPng
+        ToPng,
+        ToPng2
     }
 }
