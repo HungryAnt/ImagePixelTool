@@ -9,6 +9,8 @@ namespace RubyGameImageTool
     {
         Origin,
         ToPng,
-        ToPng2
+        ToPng2,
+        ToPng3,
+        ToPng4
     }
 }
