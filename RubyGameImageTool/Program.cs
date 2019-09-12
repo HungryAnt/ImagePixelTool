@@ -39,6 +39,14 @@ namespace RubyGameImageTool
                 {
                     function = Function.ToPng4;
                 }
+                else if (args[1] == "png5")
+                {
+                    function = Function.ToPng5;
+                }
+                else if (args[1] == "png6") // 黑色背景
+                {
+                    function = Function.ToPng6;
+                }
             }
             
             DirectoryInfo rootDir = new DirectoryInfo(imageDir);
@@ -65,6 +73,14 @@ namespace RubyGameImageTool
                 else if (function == Function.ToPng4)
                 {
                     toPng(fileInfo.FullName, Color.FromRgb(0, 0, 255));
+                }
+                else if (function == Function.ToPng5)
+                {
+                    toPng(fileInfo.FullName, Color.FromRgb(0, 248, 0));
+                }
+                else if (function == Function.ToPng6)
+                {
+                    toPng(fileInfo.FullName, Color.FromRgb(0, 0, 0));
                 }
             }
             Console.WriteLine("Done! ~ Ant robot");

@@ -11,6 +11,8 @@ namespace RubyGameImageTool
         ToPng,
         ToPng2,
         ToPng3,
-        ToPng4
+        ToPng4,
+        ToPng5,
+        ToPng6,
     }
 }
