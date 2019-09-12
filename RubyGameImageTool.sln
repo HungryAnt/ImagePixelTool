@@ -1,20 +1,55 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RubyGameImageTool", "RubyGameImageTool\RubyGameImageTool.csproj", "{26A8DEC0-2D88-429E-A3B2-09858677D06A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6D7E0F38-3B25-46A0-8828-FB076191F60A} = {6D7E0F38-3B25-46A0-8828-FB076191F60A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackToTransparentTool", "BlackToTransparentTool\BlackToTransparentTool.csproj", "{69E9E72A-A645-4FB7-92C6-0387C5F2AFF4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6D7E0F38-3B25-46A0-8828-FB076191F60A} = {6D7E0F38-3B25-46A0-8828-FB076191F60A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageLib", "ImageLib\ImageLib.csproj", "{6D7E0F38-3B25-46A0-8828-FB076191F60A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26A8DEC0-2D88-429E-A3B2-09858677D06A}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{26A8DEC0-2D88-429E-A3B2-09858677D06A}.Debug|x86.ActiveCfg = Debug|x86
 		{26A8DEC0-2D88-429E-A3B2-09858677D06A}.Debug|x86.Build.0 = Debug|x86
+		{26A8DEC0-2D88-429E-A3B2-09858677D06A}.Release|Any CPU.ActiveCfg = Release|x86
 		{26A8DEC0-2D88-429E-A3B2-09858677D06A}.Release|x86.ActiveCfg = Release|x86
 		{26A8DEC0-2D88-429E-A3B2-09858677D06A}.Release|x86.Build.0 = Release|x86
+		{69E9E72A-A645-4FB7-92C6-0387C5F2AFF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E9E72A-A645-4FB7-92C6-0387C5F2AFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E9E72A-A645-4FB7-92C6-0387C5F2AFF4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{69E9E72A-A645-4FB7-92C6-0387C5F2AFF4}.Debug|x86.Build.0 = Debug|Any CPU
+		{69E9E72A-A645-4FB7-92C6-0387C5F2AFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E9E72A-A645-4FB7-92C6-0387C5F2AFF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E9E72A-A645-4FB7-92C6-0387C5F2AFF4}.Release|x86.ActiveCfg = Release|Any CPU
+		{69E9E72A-A645-4FB7-92C6-0387C5F2AFF4}.Release|x86.Build.0 = Release|Any CPU
+		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Debug|x86.Build.0 = Debug|Any CPU
+		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Release|x86.ActiveCfg = Release|Any CPU
+		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {474AD070-CCB8-41C7-9E32-0C4E39D5EA58}
 	EndGlobalSection
 EndGlobal
