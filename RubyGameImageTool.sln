@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackToTransparentTool", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageLib", "ImageLib\ImageLib.csproj", "{6D7E0F38-3B25-46A0-8828-FB076191F60A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteToTransparentTool", "WhiteToTransparentTool\WhiteToTransparentTool.csproj", "{BAD6EB1E-B0E9-44D2-99D6-8B9BD49885AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,14 @@ Global
 		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Release|x86.ActiveCfg = Release|Any CPU
 		{6D7E0F38-3B25-46A0-8828-FB076191F60A}.Release|x86.Build.0 = Release|Any CPU
+		{BAD6EB1E-B0E9-44D2-99D6-8B9BD49885AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD6EB1E-B0E9-44D2-99D6-8B9BD49885AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD6EB1E-B0E9-44D2-99D6-8B9BD49885AE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BAD6EB1E-B0E9-44D2-99D6-8B9BD49885AE}.Debug|x86.Build.0 = Debug|Any CPU
+		{BAD6EB1E-B0E9-44D2-99D6-8B9BD49885AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD6EB1E-B0E9-44D2-99D6-8B9BD49885AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD6EB1E-B0E9-44D2-99D6-8B9BD49885AE}.Release|x86.ActiveCfg = Release|Any CPU
+		{BAD6EB1E-B0E9-44D2-99D6-8B9BD49885AE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
